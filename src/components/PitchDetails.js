@@ -14,7 +14,7 @@ import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import BathroomOutlinedIcon from "@mui/icons-material/BathroomOutlined";
 import ImageDisplay from "./ImageDisplay";
 import { modalContext } from "./Layout";
-import { BookingForm } from "./BookingForm";
+import { ThemeContext } from "@emotion/react";
 
 const details = [
   {
@@ -59,25 +59,33 @@ function PitchDetails() {
             item
             rowSpacing={3}
             xs={12}
-            lg={6}
-            xl={6}
+            md={6}
+            lg={8}
+            xl={8}
             columnSpacing={2}
+            order={(theme) => (theme.breakpoints.up("sm") ? -2 : 1)}
           >
             <Grid item xs={12}>
-              <Typography variant="h4">Details of Pitch</Typography>
+              <Typography variant="h3">Details of Pitch</Typography>
             </Grid>
             {details.map((detail, index) => (
               <Grid item xs="auto" key={index}>
                 <Stack spacing={2} direction="row">
                   {detail.icon}
-                  <Typography variant="body2" noWrap>
+                  <Typography variant="body1" noWrap>
                     {detail.name} : {detail.value}
                   </Typography>
                 </Stack>
               </Grid>
             ))}
           </Grid>
-          <Grid item xs={12} lg={6}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            order={(theme) => (theme.breakpoints.up("sm") ? 0 : 2)}
+          >
             <Card sx={{ maxWidth: 275 }}>
               <CardContent
                 sx={{
@@ -114,7 +122,11 @@ function PitchDetails() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12}>
+          <Grid
+            item
+            xs={12}
+            order={(theme) => (theme.breakpoints.up("up") ? -1 : 3)}
+          >
             <ImageDisplay />
           </Grid>
         </Grid>

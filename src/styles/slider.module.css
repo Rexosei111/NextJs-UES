@@ -1,0 +1,12 @@
+.mySlider {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.mySlider > span {
+  border-radius: inherit;
+}
+
+.swiper > .swiper-button-next {
+  color: red;
+}
