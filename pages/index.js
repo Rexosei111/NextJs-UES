@@ -3,6 +3,8 @@ import { Backdrop, Box, Typography } from "@mui/material";
 import Link from "../src/Link";
 import HeroSection from "../src/components/HeroSection";
 import PitchDetails from "../src/components/PitchDetails";
+import BookingProcess from "../src/components/BookingProcess";
+import ProhibitedEvents from "../src/components/ProhibitedEvents";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       </Head>
       <HeroSection />
       <PitchDetails />
+      <BookingProcess />
+      <ProhibitedEvents />
     </>
   );
 }

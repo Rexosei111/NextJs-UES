@@ -6,6 +6,7 @@ import {
   Grid,
   Stack,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useContext } from "react";
 import ShareLocationIcon from "@mui/icons-material/ShareLocation";
@@ -45,6 +46,8 @@ function PitchDetails() {
     setBackdropComponent("form");
     setOpen(true);
   };
+
+  const sm = useMediaQuery("(max-width: 600px)");
   return (
     <>
       <Container
@@ -63,7 +66,7 @@ function PitchDetails() {
             lg={8}
             xl={8}
             columnSpacing={2}
-            order={(theme) => (theme.breakpoints.up("sm") ? -2 : 1)}
+            order={sm ? 1 : null}
           >
             <Grid item xs={12}>
               <Typography variant="h3">Details of Pitch</Typography>
@@ -79,13 +82,7 @@ function PitchDetails() {
               </Grid>
             ))}
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            lg={4}
-            order={(theme) => (theme.breakpoints.up("sm") ? 0 : 2)}
-          >
+          <Grid item xs={12} md={6} lg={4} order={sm ? 3 : null}>
             <Card sx={{ maxWidth: 275 }}>
               <CardContent
                 sx={{
@@ -122,11 +119,7 @@ function PitchDetails() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            order={(theme) => (theme.breakpoints.up("up") ? -1 : 3)}
-          >
+          <Grid item xs={12} order={sm ? 2 : null}>
             <ImageDisplay />
           </Grid>
         </Grid>
